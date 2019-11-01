@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "draigbold";
+  src: url("../../static/fonts/draig-bold-webfont.woff2") format("woff2"),
+    url("../../static/fonts/draig-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "draigregular";
+  src: url("../../static/fonts/draig-regular-webfont.woff2") format("woff2"),
+    url("../../static/fonts/draig-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: draigregular;
+}
