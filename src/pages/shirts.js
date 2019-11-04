@@ -12,7 +12,9 @@ export default ({ data }) => {
       <h1>Shirts</h1>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <div key={node.id}>
-          <h2>{node.frontmatter.title}</h2>
+          {lang === "en"
+            ? node.frontmatter.titleEnglish
+            : node.frontmatter.titleCymraeg}
         </div>
       ))}
     </div>
@@ -27,7 +29,8 @@ export const query = graphql`
         node {
           id
           frontmatter {
-            title
+            titleEnglish
+            titleCymraeg
           }
         }
       }
