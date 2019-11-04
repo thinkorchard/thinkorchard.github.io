@@ -5,5 +5,22 @@
  */
 
 module.exports = {
-  plugins: [`gatsby-plugin-less`],
+  plugins: [
+    `gatsby-plugin-less`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `shirts`,
+        path: `${__dirname}/src/shirts`,
+      },
+    },
+    `gatsby-transformer-remark`,
+  ],
 }

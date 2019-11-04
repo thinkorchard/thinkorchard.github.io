@@ -43,7 +43,7 @@ export default () => {
           </button>
         </div>
         <div className="buttons--enter">
-          <Link to="/" className="button">
+          <Link to="/shirts" className="button">
             {lang === "en" ? "Enter" : "Enter CY"}
           </Link>
         </div>
