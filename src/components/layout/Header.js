@@ -25,7 +25,7 @@ const Header = () => {
     <header className="header">
       <img src={BadgeSM} alt="" className="header__badge" />
       <h1 className="header__title">
-        {lang == "en" ? <EnglishTitle /> : <CymraegTitle />}
+        {lang === "en" ? <EnglishTitle /> : <CymraegTitle />}
       </h1>
     </header>
   )
