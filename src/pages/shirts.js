@@ -1,12 +1,13 @@
 import React, { useContext } from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 import { LangContext } from "../components/lang/LangContext"
 import WhiteLayout from "../components/layout/WhiteLayout"
 
 import "../styles/shirtlist.less"
 
 export default ({ data }) => {
-  const { lang, setLang } = useContext(LangContext)
+  const { lang } = useContext(LangContext)
 
   return (
     <WhiteLayout
@@ -18,8 +19,9 @@ export default ({ data }) => {
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <div key={node.id}>
           {lang === "en"
-            ? node.frontmatter.titleEnglish
-            : node.frontmatter.titleCymraeg}
+            ? node.frontmatter.title_en
+            : node.frontmatter.title_cy}
+          <Img fluid={node.frontmatter.image.childImageSharp.fluid} />
         </div>
       ))}
     </WhiteLayout>
@@ -34,8 +36,15 @@ export const query = graphql`
         node {
           id
           frontmatter {
-            titleEnglish
-            titleCymraeg
+            title_en
+            title_cy
+            image {
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
         }
       }

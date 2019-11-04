@@ -13,8 +13,19 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
-        titleEnglish
-        titleCymraeg
+        title_en
+        title_cy
+        subtitle_en
+        subtitle_cy
+        desc_en
+        desc_cy
+        image {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
