@@ -2,9 +2,8 @@ import React, { useContext } from "react"
 import { Link } from "gatsby"
 
 import { LangContext } from "../components/lang/LangContext"
-
+import RedLayout from "../components/layout/RedLayout"
 import Badge from "../images/badge.png"
-import Stripes from "../images/stripes.png"
 import "../styles/landing.less"
 
 export default () => {
@@ -13,7 +12,7 @@ export default () => {
   const handleEnPress = () => setLang("en")
 
   return (
-    <div className="landing">
+    <RedLayout wrapperClass="landing">
       <img src={Badge} alt="" className="landing__badge" />
       <div className="landing__text">
         <h1 className="landing__title title">
@@ -48,9 +47,6 @@ export default () => {
           </Link>
         </div>
       </div>
-      <div className="stripes">
-        <img src={Stripes} alt="" />
-      </div>
-    </div>
+    </RedLayout>
   )
 }
