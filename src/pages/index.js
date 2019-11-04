@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 
 import { LangContext } from "../components/lang/LangContext"
 import RedLayout from "../components/layout/RedLayout"
+import { EnglishTitle, CymraegTitle } from "../components/layout/Header"
 import Badge from "../images/badge.png"
 import "../styles/landing.less"
 
@@ -16,12 +17,12 @@ export default () => {
       <img src={Badge} alt="" className="landing__badge" />
       <div className="landing__text">
         <h1 className="landing__title title">
-          <span className="title--smaller">The Art of the</span>
-          <br />
-          <span className="title--larger">Wales Shirt</span>
+          {lang === "en" ? <EnglishTitle /> : <CymraegTitle />}
         </h1>
         <p className="subtitle">
-          Exhibition at St Fagans
+          {lang === "en"
+            ? "Exhibition at St Fagans"
+            : "Exhibition at St Fagans Cy"}
           <br />
           11.11.19 - 24.11.19
         </p>

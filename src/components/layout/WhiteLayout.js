@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import Header from "./Header"
 import JD from "../../images/jd.png"
 import Adidas from "../../images/adidas.png"
 import Back from "../../images/back.png"
@@ -10,6 +11,7 @@ const RedLayout = ({ children, wrapperClass, backLink, backText }) => {
   return (
     <div className="layout layout--white">
       <div className={`layout__inner ${wrapperClassName}`}>
+        <Header />
         {children}
         <div className="footer footer--white">
           <div className="back">
