@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { LangContext } from "../components/lang/LangContext"
 import WhiteLayout from "../components/layout/WhiteLayout"
@@ -15,15 +15,24 @@ export default ({ data }) => {
       backLink="/"
       backText={lang === "en" ? "Back to start" : "Back to start CY"}
     >
-      <h1>Shirts</h1>
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <div key={node.id}>
-          {lang === "en"
-            ? node.frontmatter.title_en
-            : node.frontmatter.title_cy}
-          <Img fluid={node.frontmatter.image.childImageSharp.fluid} />
+      <h1>Select a shirt</h1>
+      <div className="shirtlistcontainer">
+        <div className="shirtlist">
+          {data.allMarkdownRemark.edges.map(({ node }) => (
+            <div className="shirtlist__item" key={node.id}>
+              <Link
+                className="shirtlist__link"
+                to={`/shirts/${node.frontmatter.number}`}
+              >
+                <Img
+                  className="shirtlist__img"
+                  fluid={node.frontmatter.image.childImageSharp.fixed}
+                />
+              </Link>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </WhiteLayout>
   )
 }
@@ -36,12 +45,13 @@ export const query = graphql`
         node {
           id
           frontmatter {
+            number
             title_en
             title_cy
             image {
               childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
+                fixed(width: 800) {
+                  ...GatsbyImageSharpFixed
                 }
               }
             }
