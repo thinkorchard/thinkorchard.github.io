@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
 import { Link, graphql } from "gatsby"
-import { LangContext } from "../components/common/LangContext"
+import { LangContext } from "../components/lang/LangContext"
 
 import "../styles/shirtlist.less"
 

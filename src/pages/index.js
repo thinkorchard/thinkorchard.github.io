@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { Link } from "gatsby"
 
-import { LangContext } from "../components/common/LangContext"
+import { LangContext } from "../components/lang/LangContext"
 
 import Badge from "../images/badge.png"
 import Stripes from "../images/stripes.png"
