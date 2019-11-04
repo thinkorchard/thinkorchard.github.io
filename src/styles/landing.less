@@ -3,11 +3,18 @@
 .landing {
   height: 100%;
   background-color: @red;
-  text-align: center;
-}
-.title {
   color: @white;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__text {
+    margin: 150px 0;
+  }
+}
+.title {
   &--smaller {
     font-size: 150px;
   }
@@ -15,6 +22,39 @@
     font-size: 180px;
   }
 }
+
+.subtitle {
+  font-size: 50px;
+}
+
+.buttons {
+  /* max-width: 60%; */
+  /* margin: 0 auto; */
+  &--lang,
+  &--enter {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+  }
+}
+.button {
+  flex: 1;
+  display: inline-block;
+  color: @white;
+  border: solid 3px fade(@white, 50%);
+  text-decoration: none;
+  cursor: pointer;
+  padding: 20px 70px;
+  padding-top: 30px;
+  margin: 10px;
+  font-size: 50px;
+  line-height: 1.5;
+
+  &--active {
+    background-color: fade(@white, 20%);
+  }
+}
+
 .stripes {
   position: absolute;
   bottom: -3px;

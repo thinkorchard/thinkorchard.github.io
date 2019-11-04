@@ -14,18 +14,31 @@ export default () => {
 
   return (
     <div className="landing">
-      <img src={Badge} alt="" />
-      <h1 className="title">
-        <span className="title--smaller">The Art of the</span>
-        <br />
-        <span className="title--larger">Wales Shirt</span>
-      </h1>
-      <div className="buttons">
+      <img src={Badge} alt="" className="landing__badge" />
+      <div className="landing__text">
+        <h1 className="landing__title title">
+          <span className="title--smaller">The Art of the</span>
+          <br />
+          <span className="title--larger">Wales Shirt</span>
+        </h1>
+        <p className="subtitle">
+          Exhibition at St Fagans
+          <br />
+          11.11.19 - 24.11.19
+        </p>
+      </div>
+      <div className="landing__buttons buttons">
         <div className="buttons--lang">
-          <button className="button" onClick={handleCyPress}>
+          <button
+            className={`button ${lang === "cy" ? "button--active" : ""}`}
+            onClick={handleCyPress}
+          >
             Cymraeg
           </button>
-          <button className="button" onClick={handleEnPress}>
+          <button
+            className={`button ${lang === "en" ? "button--active" : ""}`}
+            onClick={handleEnPress}
+          >
             English
           </button>
         </div>
@@ -35,7 +48,6 @@ export default () => {
           </Link>
         </div>
       </div>
-      <span>{lang}</span>
       <div className="stripes">
         <img src={Stripes} alt="" />
       </div>
