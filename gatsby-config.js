@@ -5,7 +5,6 @@
  */
 
 module.exports = {
-  pathPrefix: "/FAW",
   plugins: [
     `gatsby-plugin-less`,
     {
