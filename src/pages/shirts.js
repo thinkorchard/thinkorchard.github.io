@@ -26,7 +26,7 @@ export default ({ data }) => {
               >
                 <Img
                   className="shirtlist__img"
-                  fluid={node.frontmatter.image.childImageSharp.fixed}
+                  fluid={node.frontmatter.image.childImageSharp.fluid}
                 />
               </Link>
             </div>
@@ -39,7 +39,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: [frontmatter___number], order: ASC }) {
       totalCount
       edges {
         node {
@@ -50,8 +50,8 @@ export const query = graphql`
             title_cy
             image {
               childImageSharp {
-                fixed(width: 800) {
-                  ...GatsbyImageSharpFixed
+                fluid(maxWidth: 250) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
